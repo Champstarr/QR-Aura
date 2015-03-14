@@ -1,7 +1,10 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
-var data = 'aloha'
+var mongoose = require('mongoose');
+
+
+
 app.use(express.static(__dirname + "/../public"));//points to static files to simplify pathing
 app.use(bodyParser.urlencoded({extended: true})); //send through body-parser function for cleaner formatting
 
@@ -10,7 +13,8 @@ app.get('/',function(req,res){
 })
 
 app.post('/', function(req,res){
-  console.log(data);
+
+  console.log (req.body);
 })
 
 var server = app.listen (3000, function(){
