@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
+var config = require('./config');
 
 
 
@@ -11,6 +12,9 @@ app.use(bodyParser.urlencoded({extended: true})); //send through body-parser fun
 app.get('/',function(req,res){
   res.render(__dirname + "/../public/index.html");
 })
+
+mongoose.connect(config.databaseURI);
+
 
 app.post('/', function(req,res){
 
