@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <title>Contact Info</title>
+  <link rel="stylesheet" type="text/css" href="/css/static.css">
 </head>
 <body>
   <div id="form-wrap">
         <h4>Contact Me:</h4>
+        <!-- <%= contact %> <! how to refrence what we passed in from ejs -->
         <ul>
-          <li>Name:</li>
-          <li>Email:</li>
-          <li>Phone number: </li>
-          <li>Comments:</li>
-        </ul>
+          <li>Name: <%= contact.name %></li>
+          <li>Email: <%= contact.email %></li>
+          <li>Phone number: <%= contact.phone %></li>
+          <li>Comments: <%= contact.comments %></li>
+        </ul
    </div> 
 </body>
 </html>

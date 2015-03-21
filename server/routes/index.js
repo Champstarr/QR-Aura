@@ -25,7 +25,7 @@ router.get('/contact', function(req,res){
 router.get('/contact/:id', function(req,res){ //pass contacts into template
   Contact.findById(req.params.id, function(err, contact){
     console.log(contact);
-    res.render("static", {contact: contact});
+    res.render("static", {contact: contact}); //passing in contact to "static"
   });
 });
 
