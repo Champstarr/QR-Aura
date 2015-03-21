@@ -22,9 +22,10 @@ router.get('/contact', function(req,res){
   });
 });
 
-router.get('/contact/:id', function(req,res){
-  Contact.find(req.params.id, function(err, contacts){
-    res.render(__dirname + "/../../public/static.html");
+router.get('/contact/:id', function(req,res){ //pass contacts into template
+  Contact.findById(req.params.id, function(err, contact){
+    console.log(contact);
+    res.render("static", {contact: contact});
   });
 });
 
