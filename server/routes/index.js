@@ -45,3 +45,5 @@ router.get('/qrcode/:');
 module.exports = router;
 
 //to render on a page
+//need a template rendering engine to show contact info dynamically.
+//'id' is changing, that the dybamic aspect of this pahse of the project

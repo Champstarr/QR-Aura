@@ -4,6 +4,8 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var config = require('./config');
 
+app.set('views', './views'); //where templates are stored, templted ill be interpreted by ejs
+app.set('view engine', 'ejs'); // setting view engine to the ejs library 
 app.use(express.static(__dirname + "/../public"));//points to static files to simplify pathing
 app.use(bodyParser.urlencoded({extended: true})); //send through body-parser function for cleaner formatting
 var routes = require('./routes');
