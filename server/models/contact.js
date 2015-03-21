@@ -8,4 +8,4 @@ var contactSchema = new Schema({
   comments: String
 });
 
-mongoose.model('contact', contactSchema);
+mongoose.model('contact', contactSchema); //Defined al collection called contact
