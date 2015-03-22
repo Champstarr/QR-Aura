@@ -16,11 +16,6 @@ router.get('/',function(req,res){
   res.render(__dirname + "/../../public/index.html");//Rendering the html file from our current directory
 });
 
-router.get('/contact', function(req,res){
-  mongoose.model('contact').find(function(err, contacts){
-    res.send(contacts);
-  });
-});
 
 router.get('/contact/:id', function(req,res){ //pass contacts into template
   Contact.findById(req.params.id, function(err, contact){
@@ -29,19 +24,21 @@ router.get('/contact/:id', function(req,res){ //pass contacts into template
   });
 });
 
+router.get('/qrurl/:id', function(req,res){
+  res.render('qrcode', {id: req.params.id});
+});
 
 router.post('/', function(req,res){
   var contact = new Contact(req.body);
   contact.save(function(err,contact){
+    console.log(contact.id);
     if (err){
       throw err;
     }
-    res.redirect('/');
+    res.redirect('/qrurl/' + contact.id); // '/' back to the root
   });
   console.log(contact);
 });
-
-router.get('/qrcode/:');
 
 module.exports = router;
 

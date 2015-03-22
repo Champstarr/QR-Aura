@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Aloha</h1>
+  <div><a href="http://localhost:3000/contact/<%= id %>"> qrlink</a></div>
+    <div id="qrcode">
+
+    </div>
+
+    <script src ="/qrcodejs/qrcode.min.js"></script>
+
+    <script>
+    var qrcode = new QRCode("qrcode");
+    qrcode.makeCode("http://localhost:3000/contact/<%= id %>");
+    </script>
+
+
+</body>
+</html>

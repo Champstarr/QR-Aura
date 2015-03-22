@@ -12,5 +12,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "qrcodejs": "~0.1.0"
+  }
 }
