@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
-var config = require('./config');
+
 
 app.set('views', './views'); //where templates are stored, templted ill be interpreted by ejs
 app.set('view engine', 'ejs'); // setting view engine to the ejs library 

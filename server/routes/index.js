@@ -25,8 +25,10 @@ router.get('/contact/:id', function(req,res){ //pass contacts into template
 });
 
 router.get('/qrurl/:id', function(req,res){
-  res.render('qrcode', {id: req.params.id});
+  res.render('qrcode', {id: req.params.id, ip: config.ip});
 });
+
+
 
 router.post('/', function(req,res){
   var contact = new Contact(req.body);

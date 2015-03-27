@@ -5,8 +5,7 @@
   <title>Document</title>
 </head>
 <body>
-  <h1>Aloha</h1>
-  <div><a href="http://localhost:3000/contact/<%= id %>"> qrlink</a></div>
+  <div><a href="http://localhost:3000/contact/<%= id %>"></a></div>
     <div id="qrcode">
 
     </div>
@@ -15,7 +14,7 @@
 
     <script>
     var qrcode = new QRCode("qrcode");
-    qrcode.makeCode("http://localhost:3000/contact/<%= id %>");
+    qrcode.makeCode("<%=ip %>/contact/<%= id %>");
     </script>
 
 
