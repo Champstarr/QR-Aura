@@ -3,6 +3,7 @@ var router = express.Router(); //Object provided by express
 var mongoose = require('mongoose'); //making use of mongoose library
 var config = require('../config'); //requiring the congig.json file
 var fs = require('fs'); //requiring core library 'fs'
+var sendMail = require('../sendmail');
 
 //load all files in models directory
 fs.readdirSync(__dirname + '/../models').forEach(function(filename){
@@ -21,13 +22,13 @@ router.get('/contact/:id', function(req,res){ //pass contacts into template
   Contact.findById(req.params.id, function(err, contact){
     console.log(contact);
     res.render("static", {contact: contact}); //passing in contact to "static"
+    sendMail('darkauradolphin@gmail.com', contact.email, "Your Model Has Been Found", contact.comments);
   });
 });
 
 router.get('/qrurl/:id', function(req,res){
   res.render('qrcode', {id: req.params.id, ip: config.ip});
 });
-
 
 
 router.post('/', function(req,res){
